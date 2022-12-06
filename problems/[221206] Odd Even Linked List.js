@@ -11,6 +11,24 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-const oddEvenList = function(head) {
+const oddEvenList = function (head) {
+  if (!head) return;
 
+  let size = 0;
+  let current = head;
+  let copyHead = head;
+  let odd;
+
+  while (current.next) {
+    if (size % 2) {
+      if (!odd) {
+        odd = current;
+      } else {
+        odd.next = current;
+      }
+    }
+
+    current = current.next;
+    size++;
+  }
 };
