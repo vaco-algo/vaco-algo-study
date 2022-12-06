@@ -12,5 +12,31 @@
  * @return {ListNode}
  */
 const oddEvenList = function(head) {
+  let evenListHead = null;
+  let currentIndex = 1;
+  let currentNode = head;
+  let tailOddNode = head;
+  let tailEvenNode = null;
 
+  while (currentNode.next) {
+      if (currentIndex) {
+          if (currentIndex === 1) {
+              evenListHead = currentNode.next;
+              tailEvenNode = evenListHead;
+          } else {
+              tailEvenNode.next = currentNode.next;
+              tailEvenNode = tailEvenNode.next;
+          }
+      } else {
+          tailOddNode.next = currentNode.next;
+          tailOddNode = tailOddNode.next;
+      }
+
+      currentNode = currentNode.next;
+      currentIndex++;
+  }
+
+  tailOddNode.next = evenListHead;
+
+  return head;
 };
