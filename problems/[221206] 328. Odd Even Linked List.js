@@ -19,7 +19,7 @@ const oddEvenList = function(head) {
   let tailEvenNode = null;
 
   while (currentNode.next) {
-      if (currentIndex) {
+      if (currentIndex % 2) {
           if (currentIndex === 1) {
               evenListHead = currentNode.next;
               tailEvenNode = evenListHead;
@@ -37,6 +37,8 @@ const oddEvenList = function(head) {
   }
 
   tailOddNode.next = evenListHead;
+
+  if (tailEvenNode?.next) tailEvenNode.next = null;
 
   return head;
 };
