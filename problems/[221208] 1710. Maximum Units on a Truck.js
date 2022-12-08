@@ -18,7 +18,7 @@
 
     if (!currentBox) return result;
 
-    if(currentBox[0] > boxCount) {
+    if (currentBox[0] > boxCount) {
       result += currentBox[1];
       boxCount += 1;
       totalCount += 1;
