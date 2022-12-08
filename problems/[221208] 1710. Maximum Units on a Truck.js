@@ -5,6 +5,6 @@
  * @param {number} truckSize
  * @return {number}
  */
- const maximumUnits = function(boxTypes, truckSize) {
+const maximumUnits = function (boxTypes, truckSize) {
 
- };
+};
