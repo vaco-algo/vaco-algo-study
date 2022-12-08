@@ -6,18 +6,18 @@
  * @return {number}
  */
 const maximumUnits = function(boxTypes, truckSize) {
-  const sortedBoxTypes = [...boxTypes];
-  sortedBoxTypes.sort((a, b) => a[1] - b[1]);
+  const sortedBoxTypes = [...boxTypes].sort((a, b) => a[1] - b[1]);
   let result = 0;
+  let remainTruckSize = truckSize;
 
-  while (truckSize && sortedBoxTypes.length) {
-      const currentBox = sortedBoxTypes.pop();
+  while (remainTruckSize && sortedBoxTypes.length) {
+    const currentBox = sortedBoxTypes.pop();
 
-      if (currentBox[0] > truckSize) return result += (currentBox[1] * truckSize);
+    if (currentBox[0] > remainTruckSize) return result += (currentBox[1] * remainTruckSize);
 
-      result += (currentBox[1] * currentBox[0]);
-      truckSize -= currentBox[0];
+    result += (currentBox[1] * currentBox[0]);
+    remainTruckSize -= currentBox[0];
   }
 
-    return result;
+  return result;
 };
