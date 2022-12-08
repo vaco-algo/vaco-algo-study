@@ -12,5 +12,20 @@
  * @return {ListNode}
  */
 const oddEvenList = function(head) {
+  if (head === null) return null;
 
+  let oddTail = head;
+  const evenHead = head.next;
+  let evenTail = evenHead;
+
+  while (evenTail !== null && evenTail.next !== null) {
+      oddTail.next = evenTail.next;
+      oddTail = oddTail.next;
+      evenTail.next = oddTail.next;
+      evenTail = evenTail.next;
+  }
+
+  oddTail.next = evenHead;
+
+  return head;
 };
