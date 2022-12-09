@@ -5,14 +5,32 @@
  * @return {number}
  */
 var maxDistance = function (colors) {
-  if (new Set(colors).size === 1) return 0;
   const colorStartEndIndex = {};
 
   colors.forEach((color, index) => {
-      if (obj[color]) {
-          return obj[color].end = index;
-      }
+    if (colorStartEndIndex[color]) {
+      return (colorStartEndIndex[color].end = index);
+    }
 
-      obj[color] = { start: index, end: index }
-  })
+    colorStartEndIndex[color] = { start: index, end: index };
+  });
+
+  const minSort = Object.entries(colorStartEndIndex).sort((a, b) => {
+    return a[1].start - b[1].start;
+  });
+
+  const maxSort = Object.entries(colorStartEndIndex).sort((a, b) => {
+    return b[1].end - a[1].end;
+  });
+
+  if (minSort[0][0] === maxSort[0][0]) {
+    const nextMax = Math.max(
+      Math.abs(minSort[0][1].start - maxSort[1][1].end),
+      Math.abs(minSort[1][1].start - maxSort[0][1].end)
+    );
+
+    return nextMax;
+  }
+
+  return Math.abs(minSort[0][1].start - maxSort[0][1].end);
 };
