@@ -5,32 +5,26 @@
  * @return {number}
  */
 var maxDistance = function (colors) {
-  const colorStartEndIndex = {};
+  const firstColorStartEnd = { start: 0, end: 0 };
+  const furthestColorStartEnd = { start: null, end: null };
 
   colors.forEach((color, index) => {
-    if (colorStartEndIndex[color]) {
-      return (colorStartEndIndex[color].end = index);
+    if (colors[0] === color) {
+      firstColorStartEnd.end = index;
+      return;
     }
 
-    colorStartEndIndex[color] = { start: index, end: index };
+    if (!furthestColorStartEnd.start) {
+      furthestColorStartEnd.start = index;
+      furthestColorStartEnd.end = index;
+      return;
+    }
+
+    furthestColorStartEnd.end = index;
   });
 
-  const minSort = Object.entries(colorStartEndIndex).sort((a, b) => {
-    return a[1].start - b[1].start;
-  });
-
-  const maxSort = Object.entries(colorStartEndIndex).sort((a, b) => {
-    return b[1].end - a[1].end;
-  });
-
-  if (minSort[0][0] === maxSort[0][0]) {
-    const nextMax = Math.max(
-      Math.abs(minSort[0][1].start - maxSort[1][1].end),
-      Math.abs(minSort[1][1].start - maxSort[0][1].end)
-    );
-
-    return nextMax;
-  }
-
-  return Math.abs(minSort[0][1].start - maxSort[0][1].end);
+  return Math.max(
+    furthestColorStartEnd.end - firstColorStartEnd.start,
+    firstColorStartEnd.end - furthestColorStartEnd.start
+  );
 };
