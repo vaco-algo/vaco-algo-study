@@ -5,7 +5,7 @@
  * @param {number} truckSize
  * @return {number}
  */
- const maximumUnits = function(boxTypes, truckSize) {
+const maximumUnits = function (boxTypes, truckSize) {
   return boxTypes
     .slice()
     .sort((a, b) => b[1] - a[1])
@@ -28,4 +28,4 @@
       total: 0
     })
     .total;
- };
+}
