@@ -28,4 +28,4 @@ const maximumUnits = function (boxTypes, truckSize) {
       total: 0
     })
     .total;
-}
+};
