@@ -5,9 +5,9 @@
  * @return {number}
  */
 var arrayPairSum = function (nums) {
-  const sort = [...nums].sort((a, b) => a - b);
+  const sortedNums = [...nums].sort((a, b) => a - b);
 
-  return sort.reduce((sum, cur, index) => {
+  return sortedNums.reduce((sum, cur, index) => {
     if (index % 2 !== 0) {
       return sum;
     }
