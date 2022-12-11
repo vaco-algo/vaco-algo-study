@@ -18,5 +18,4 @@ const maximumUnits = function (boxTypes, truckSize) {
     if (!truckSize) break;
   }
 
-  return result;
-};
+ };
