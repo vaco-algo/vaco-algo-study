@@ -17,14 +17,19 @@ const maxArea = function(height) {
 
   let start = 0;
   let end = height.length - 1;
+  let mostWater = (end - start) * Math.min(height[start], height[end]);
 
-  for (let i = start + 1; i < height.length; i++) {
-    if ((height[i] - height[start]) > i - start) start = i;
+  while (start < end) {
+    if (height[start] >= height[end]) {
+      end--;
+      const currentWater = (end - start) * Math.min(height[start], height[end]);
+      mostWater = Math.max(mostWater, currentWater);
+    } else {
+      start++;
+      const currentWater = (end - start) * Math.min(height[start], height[end]);
+      mostWater = Math.max(mostWater, currentWater);
+    }
   }
 
-  for (let i = end - 1; i >= 0; i--) {
-    if ((height[i] - height[end]) > end - i) end = i;
-  }
-
-   return (end - start) * Math.min(height[start], height[end]);
+  return mostWater;
 };
