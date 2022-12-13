@@ -4,6 +4,29 @@
  * @param {number[]} height
  * @return {number}
  */
-const maxArea = function(height) {
+const maxArea = function (height) {
+  let maxSum = 0;
+  let leftPointer = 0;
+  let rightPointer = height.length - 1;
 
+  while (leftPointer !== height.length - 1) {
+    if (rightPointer === leftPointer + 1) {
+      maxSum = Math.max(
+        Math.min(height[leftPointer], height[rightPointer]) *
+          (rightPointer - leftPointer),
+        maxSum
+      );
+      leftPointer++;
+      rightPointer = height.length - 1;
+    } else {
+      maxSum = Math.max(
+        Math.min(height[leftPointer], height[rightPointer]) *
+          (rightPointer - leftPointer),
+        maxSum
+      );
+      rightPointer--;
+    }
+  }
+
+  return maxSum;
 };
