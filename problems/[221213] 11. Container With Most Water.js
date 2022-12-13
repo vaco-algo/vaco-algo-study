@@ -15,10 +15,10 @@ const maxArea = function (height) {
       Math.min(height[toRightIdx], height[toLeftIdx]);
     answer = val > answer ? val : answer;
 
-    if (height[toLeftPointer] < height[toRightPointer]) {
-      toLeftPointer--;
+    if (height[toLeftIdx] < height[toRightIdx]) {
+      toLeftIdx--;
     } else {
-      toRightPointer++;
+      toRightIdx++;
     }
   }
 
