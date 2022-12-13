@@ -10,20 +10,16 @@ const maxArea = function (height) {
   let rightPointer = height.length - 1;
 
   while (leftPointer !== height.length - 1) {
+    maxSum = Math.max(
+      Math.min(height[leftPointer], height[rightPointer]) *
+        (rightPointer - leftPointer),
+      maxSum
+    );
+
     if (rightPointer === leftPointer + 1) {
-      maxSum = Math.max(
-        Math.min(height[leftPointer], height[rightPointer]) *
-          (rightPointer - leftPointer),
-        maxSum
-      );
       leftPointer++;
       rightPointer = height.length - 1;
     } else {
-      maxSum = Math.max(
-        Math.min(height[leftPointer], height[rightPointer]) *
-          (rightPointer - leftPointer),
-        maxSum
-      );
       rightPointer--;
     }
   }
