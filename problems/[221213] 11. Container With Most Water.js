@@ -26,4 +26,3 @@ const maxArea = function (height) {
 
   return maxSum;
 };
-// test
