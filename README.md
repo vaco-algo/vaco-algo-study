@@ -3,7 +3,9 @@
 <details>
 <summary>Greedy Algorithm 22.12.08 - 22.12.15</summary>
 
-[[221208] 1710. Maximum Units on a Truck](https://github.com/h-alex2/vaco-algo-study/blob/main/problems/%5B221208%5D%201710.%20Maximum%20Units%20on%20a%20Truck.js)
+- [[221208] 1710. Maximum Units on a Truck](https://github.com/h-alex2/vaco-algo-study/blob/main/problems/%5B221208%5D%201710.%20Maximum%20Units%20on%20a%20Truck.js)
+- [[221209] 2078. Two Furthest Houses With Different Colors](https://github.com/vaco-algo/vaco-algo-study/blob/main/problems/%5B221209%5D%202078.%20Two%20Furthest%20Houses%20With%20Different%20Colors.js)
+- [[221211] 561. Array Partition](https://github.com/vaco-algo/vaco-algo-study/blob/main/problems/%5B221211%5D%20561.%20Array%20Partition.js)
 
 ## Greedy Algorithm
 
@@ -18,6 +20,14 @@
   - 앞의 선택이 이후의 선택에 영향을 주지 않음
 - 최적 부분 구조 조건(optimal substructure)
   - 문제에 대한 최종 해결 방법은 부분 문제에 대한 최적 문제 해결 방법으로 구성된다.
+
+### 풀이 기록
+- 홀수 또는 짝수의 index만 필요할 경우 모두 순회할 필요 없으므로 for문 index를 2씩 더해가며 반복 횟수를 반으로 줄이는 방법
+  ```js
+  for (let i = 0; i < arr.length; i += 2) {
+    ...
+  }
+  ```
 
 출처
 
