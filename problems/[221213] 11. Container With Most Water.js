@@ -5,30 +5,21 @@
  * @return {number}
  */
 const maxArea = function(height) {
-  const max = {
-    value: null,
-    index: null
-  };
-
   let result = 0;
+  let leftPointer = 0;
+  let rightPointer = height.length - 1;
 
-  for (let i = 0; i < height.length; i++) {
-    if (height[i] > max.value) {
-      max.value = height[i];
-      max.index = [i];
-    } else if (height[i] === max.value) {
-      max.index.push(i);
+  while (leftPointer !== rightPointer) {
+    const area = (rightPointer - leftPointer) * Math.min(height[leftPointer], height[rightPointer]);
+
+    result = Math.max(result, area);
+
+    if (height[leftPointer] < height[rightPointer]) {
+      leftPointer += 1;
+      continue;
     }
-  }
 
-  for (let j = 0; j < height.length; j++) {
-    for (let k = 0; k < max.index.length; k++) {
-      const area = Math.abs((max.index[k] - j) * height[j]);
-
-      if (area > result) {
-        result = area;
-      }
-    }
+    rightPointer -= 1;
   }
 
   return result;
