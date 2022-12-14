@@ -23,6 +23,7 @@
   - 문제에 대한 최종 해결 방법은 부분 문제에 대한 최적 문제 해결 방법으로 구성된다.
 
 ### 풀이 기록
+
 - 홀수 또는 짝수의 index만 필요할 경우 모두 순회할 필요 없으므로 for문 index를 2씩 더해가며 반복 횟수를 반으로 줄이는 방법
   ```js
   for (let i = 0; i < arr.length; i += 2) {
@@ -33,5 +34,63 @@
 출처
 
 - [[알고리즘] 탐욕 알고리즘(Greedy Algorithm)](https://hanamon.kr/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-greedy-algorithm/)
+
+</details>
+
+<details>
+<summary>Space Complexity</summary>
+
+[[2022.12.13] 은혜님 정리](https://github.com/vaco-algo/vaco-algo-study/pull/29)
+
+- booleans, numbers, undefined, null : O(1)
+- strings : O(n) -> 문자열 길이
+- array, objects : O(n) -> 배열이나 객체의 길이
+
+```js
+function sum(arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
+  return total;
+}
+```
+
+위 함수에서는 total & i 두 변수가 사용됩니다.
+total과 i 모두 number로 O(1)의 공간 복잡도를 갖게 됩니다.
+
+```js
+function double(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    newArr.push(2 * arr[i]);
+  }
+  return newArr;
+}
+```
+
+위 함수에서는 newArr & i 두 변수가 사용됩니다.
+i는 number이지만, newArr은 배열로 O(n)의 공간 복잡도를 갖게 됩니다.
+
+```js
+function subtotals(arr) {
+  let subtotalArray = Array(arr.length);
+
+  for (let i = 0; i < arr.length; i++) {
+    let subtotal = 0;
+    for (let j = 0; j <= i; j++) {
+      subtotal += array[j];
+    }
+    subtotalArray[i] = subtotal;
+  }
+
+  return subtotalArray;
+}
+```
+
+위 함수에서는 subtotalArray & i & j & subtotal 총 4개의 변수가 사용되므로,
+O(n)의 공간 복잡도를 갖습니다.
+
+\*\* 참고로 재귀함수의 경우에는 함수가 몇 번 실행되느냐에 따라 stack이 쌓이는 경우를 다루기 때문에 별도로 다뤄주셔야 해요..!
 
 </details>
