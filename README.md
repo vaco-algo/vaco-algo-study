@@ -7,6 +7,7 @@
 - [[221209] 2078. Two Furthest Houses With Different Colors](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221209%5D%202078.%20Two%20Furthest%20Houses%20With%20Different%20Colors.js)
 - [[221211] 561. Array Partition](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221211%5D%20561.%20Array%20Partition.js)
 - [[221213] 11. Container With Most Water](https://github.com/vaco-algo/vaco-algo-study/tree/problems/problems)
+- [[221215] 1328. Break a Palindrome](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221215%5D%201328.%20Break%20a%20Palindrome.js)
 
 ## Greedy Algorithm
 
