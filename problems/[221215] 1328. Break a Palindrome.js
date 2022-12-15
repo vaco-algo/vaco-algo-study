@@ -12,11 +12,18 @@ const breakPalindrome = function (palindrome) {
   const deduplicate = new Set(result.split(""));
 
   if (deduplicate.size === 1) {
+    let index = 0;
+
     for (let i = palindrome.length - 1; i >= 0; i--) {
       if (palindrome[i] === "a") {
-        return palindrome.substring(0, i) + "b" + palindrome.substring(i + 1);
+        index = i;
+        break;
       }
     }
+
+    return (
+      palindrome.substring(0, index) + "b" + palindrome.substring(index + 1)
+    );
   }
 
   return result;
