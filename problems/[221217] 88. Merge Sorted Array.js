@@ -9,8 +9,8 @@
  */
 const merge = function(nums1, m, nums2, n) {
   if (m === 0) {
-    for (let k = 0; k < n; k++) {
-      nums1[k] = nums2[k];
+    for (let i = 0; i < n; i++) {
+      nums1[i] = nums2[i];
     }
 
     return;
@@ -22,32 +22,27 @@ const merge = function(nums1, m, nums2, n) {
 
   let left = 0;
   let right = m;
+  let idx = 0;
 
-  for (let i = 0; left !== right; i++) {
+  while (left < m && right < mergedArray.length) {
     if (mergedArray[left] > mergedArray[right]) {
-      nums1[i] = mergedArray[right];
+      nums1[idx] = mergedArray[right];
       right += 1;
     } else {
-      nums1[i] = mergedArray[left];
+      nums1[idx] = mergedArray[left];
       left += 1;
     }
 
-    if (left >= m) {
-      for (let j = right; j < mergedArray.length; j++) {
-        i += 1;
-        nums1[i] = mergedArray[j];
-      }
-
-      break;
-    }
-
-    if (right >= mergedArray.length) {
-      for (let j = left; j < m; j++) {
-        i += 1;
-        nums1[i] = mergedArray[j];
-      }
-
-      break;
-    }
+    idx += 1;
+  }
+  while (right < mergedArray.length) {
+    nums1[idx] = mergedArray[right];
+    idx += 1;
+    right += 1;
+  }
+  while (left < m) {
+    nums1[idx] = mergedArray[left];
+    idx += 1;
+    left += 1;
   }
 };
