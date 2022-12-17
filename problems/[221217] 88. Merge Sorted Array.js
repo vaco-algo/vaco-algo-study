@@ -8,24 +8,46 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 const merge = function(nums1, m, nums2, n) {
-  for (let i = 0; i < n; i++) {
-    nums1[i + m] = nums2[i];
+  if (m === 0) {
+    for (let k = 0; k < n; k++) {
+      nums1[k] = nums2[k];
+    }
+
+    return;
   }
+
+  const mergedArray = nums1
+    .slice(0, m)
+    .concat(nums2.slice(0, n));
 
   let left = 0;
   let right = m;
 
-  while (left !== right) {
-    if (nums1[right] < nums1[left]) {
-      const temp = nums1[left];
-
-      nums1[left] = nums1[right];
-      nums1[right] = temp;
-
+  for (let i = 0; left !== right; i++) {
+    if (mergedArray[left] > mergedArray[right]) {
+      nums1[i] = mergedArray[right];
       right += 1;
-      continue;
+    } else {
+      nums1[i] = mergedArray[left];
+      left += 1;
     }
 
-    left += 1;
+    if (left >= m) {
+      for (let j = right; j < mergedArray.length; j++) {
+        i += 1;
+        nums1[i] = mergedArray[j];
+      }
+
+      break;
+    }
+
+    if (right >= mergedArray.length) {
+      for (let j = left; j < m; j++) {
+        i += 1;
+        nums1[i] = mergedArray[j];
+      }
+
+      break;
+    }
   }
 };
