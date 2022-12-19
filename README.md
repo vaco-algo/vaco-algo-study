@@ -1,95 +1,69 @@
-## Vaco Algo Study 🤔
+## VacoAlgoStudy?
 
-<details>
-<summary>Greedy Algorithm 22.12.08 - 22.12.15</summary>
+바코 알고 스터디는 매 주 알고리즘 문제를 풀고, 의논해보는 알고리즘 스터디입니다.
 
-- [[221208] 1710. Maximum Units on a Truck](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221208%5D%201710.%20Maximum%20Units%20on%20a%20Truck.js)
-- [[221209] 2078. Two Furthest Houses With Different Colors](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221209%5D%202078.%20Two%20Furthest%20Houses%20With%20Different%20Colors.js)
-- [[221211] 561. Array Partition](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221211%5D%20561.%20Array%20Partition.js)
-- [[221213] 11. Container With Most Water](https://github.com/vaco-algo/vaco-algo-study/tree/problems/problems)
-- [[221215] 1328. Break a Palindrome](https://github.com/vaco-algo/vaco-algo-study/blob/problems/problems/%5B221215%5D%201328.%20Break%20a%20Palindrome.js)
+[알고리즘 지식 저장소](https://github.com/vaco-algo/vaco-algo-study/wiki)
+<br>
+<br>
 
-## Greedy Algorithm
+## 다음과 같은 활동을 해요
 
-- Greedy : 탐욕스러운, 욕심 많은
-- 당장 눈 앞에 보이는 최적의 상황만을 쫓아 최종적인 해답에 도달하는 방법 (그때 그때 가장 최선인 선택을 하는 방법)
-- 탐욕 알고리즘은 최적해를 구하는 데에 사용되는 근사적인 방법
-- 순간마다 하는 최적의 선택으로 최종적인 해답을 만들었다고 해서, 그것이 최적이라는 보장은 없다. 하지만 탐욕 알고리즘을 적용할 수 있는 문제들은 지역적으로 최적이면서 전역적으로 최적인 문제들이다.
+### 1. 알고리즘 문제들을 풀어봐요
 
-### 탐욕 알고리즘이 적용되는 조건 2가지
+leetcode의 알고리즘 문제들을 풀어봐요. 그 주의 알고리즘 주제에 맞는 문제 하나와 랜덤 문제 하나를 풀게 됩니다.
 
-- 탐욕스런 선택 조건(greedy choice property)
-  - 앞의 선택이 이후의 선택에 영향을 주지 않음
-- 최적 부분 구조 조건(optimal substructure)
-  - 문제에 대한 최종 해결 방법은 부분 문제에 대한 최적 문제 해결 방법으로 구성된다.
+매 주 화요일과 목요일은 알고리즘 문제를 푸는 날입니다. 아침 10시 반까지 자율적으로 참여할 사람들을 모집하고, 11시에 알고리즘 문제를 풉니다. 한 시간이라는 제한시간동안 내가 얼마나 문제를 해결했는 지 체크해보게 됩니다.
+<br>
+<br>
 
-### 풀이 기록
+### 2. 스터디원들끼리 리뷰를 해줘요
 
-- 홀수 또는 짝수의 index만 필요할 경우 모두 순회할 필요 없으므로 for문 index를 2씩 더해가며 반복 횟수를 반으로 줄이는 방법
-  ```js
-  for (let i = 0; i < arr.length; i += 2) {
-    ...
-  }
-  ```
+각 스터디원들은 문제를 푼 뒤, PR(Pull Request)을 올립니다. 그리고 PR에서 다른 스터디원들의 리뷰를 받게 돼요. 
 
-출처
+리뷰어들은 매일 아침에 랜덤으로 정해지게 됩니다. 문제를 완전히 해결하지 못하더라도, 어떻게 해결할 수 있을 지 리뷰해줍니다! 리뷰는 문제가 끝나는 12시 반부터 오후 10시까지 진행돼요. 서로 끊임없이 리뷰를 달면서 문제를 깊게 탐구할 수 있어요.
+<br>
+<br>
 
-- [[알고리즘] 탐욕 알고리즘(Greedy Algorithm)](https://hanamon.kr/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%ED%83%90%EC%9A%95%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-greedy-algorithm/)
+### 3. 알고리즘에 대해 조사해보고, 서로 발표해보는 시간을 가져요
 
-</details>
+매 주 알고리즘 채팅시간에는 자료구조나 알고리즘에 대해 대화하는 시간을 가지게 됩니다. 스터디원들은 미리 틈틈히 조사한 내용으로 대화하게 됩니다. 알고리즘 주제가 어떤 개념인지, 어떻게 문제에 개념을 적용할 수 있는 지, 궁금한 점은 무엇인지 자유롭게 대화합니다. 그리고 다음 주제도 무엇을 할 것인지 스터디원들이 자율적으로 정하게 됩니다.
+<br>
+<br>
 
-<details>
-<summary>Space Complexity</summary>
+### 4. 우리들만의 알고리즘 지식 저장소를 채워나가요
 
-[[2022.12.13] 은혜님 정리](https://github.com/vaco-algo/vaco-algo-study/pull/29)
+대화하면서 논의했던 내용을 정리해 알고리즘 지식을 정리해요. 알고리즘 문서들은 [wiki](https://github.com/vaco-algo/vaco-algo-study/wiki)에 작성됩니다.
 
-- booleans, numbers, undefined, null : O(1)
-- strings : O(n) -> 문자열 길이
-- array, objects : O(n) -> 배열이나 객체의 길이
+매 주 하나의 알고리즘 주제가 정해지면, 하나의 문서가 작성됩니다. 문서가 하나하나 쌓여질수록 저희 스터디원들도 조금씩 성장하게 됩니다.
+<br>
+<br>
 
-```js
-function sum(arr) {
-  let total = 0;
-  for (let i = 0; i < arr.length; i++) {
-    total += arr[i];
-  }
-  return total;
-}
-```
+### 5. Slack으로 소통해요
 
-위 함수에서는 total & i 두 변수가 사용됩니다.
-total과 i 모두 number로 O(1)의 공간 복잡도를 갖게 됩니다.
+스터디원들이 소통할 수 있는 Slack 워크스페이스를 운영 중입니다. 
 
-```js
-function double(arr) {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    newArr.push(2 * arr[i]);
-  }
-  return newArr;
-}
-```
+각자 알게된 내용을 정리해 공유할 수도 있고, 스터디 주제에 대해서도 소통할 수 있어요.
 
-위 함수에서는 newArr & i 두 변수가 사용됩니다.
-i는 number이지만, newArr은 배열로 O(n)의 공간 복잡도를 갖게 됩니다.
+Slack API를 이용해 스터디 안내, 알고리즘 문제 참여자 모집, 랜덤 리뷰어 배정 등의 작업은 자동으로 이루어지고 있습니다.
+<br>
+<br>
 
-```js
-function subtotals(arr) {
-  let subtotalArray = Array(arr.length);
-  for (let i = 0; i < arr.length; i++) {
-    let subtotal = 0;
-    for (let j = 0; j <= i; j++) {
-      subtotal += array[j];
-    }
-    subtotalArray[i] = subtotal;
-  }
-  return subtotalArray;
-}
-```
+## Members
 
-위 함수에서는 subtotalArray & i & j & subtotal 총 4개의 변수가 사용되므로,
-O(n)의 공간 복잡도를 갖습니다.
+[공재혁](https://github.com/ponjaehyeok)
 
-\*\* 참고로 재귀함수의 경우에는 함수가 몇 번 실행되느냐에 따라 stack이 쌓이는 경우를 다루기 때문에 별도로 다뤄주셔야 해요..!
+[길지문](https://github.com/roadzmoon76)
 
-</details>
+[사공은혜](https://github.com/eunhye210)
+
+[안형우](https://github.com/rktnsinger)
+
+[이세영](https://github.com/tpdud406)
+
+[이정진](https://github.com/pinomad)
+
+[임현정](https://github.com/h-alex2)
+
+[최송이](https://github.com/ssong-yi)
+
+[한아름](https://github.com/hanryu1109)
