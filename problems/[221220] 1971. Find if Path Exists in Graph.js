@@ -7,10 +7,10 @@
  * @param {number} destination
  * @return {boolean}
  */
-const validPath = function(n, edges, source, destination) {
+const validPath = function(n, edges, source, destination, paths = 0) {
   if (paths > 10) {
     return false;
-  } 
+  }
 
   if (n === 1) {
     return true;
