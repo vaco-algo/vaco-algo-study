@@ -8,6 +8,8 @@
  * @return {boolean}
  */
 const validPath = function(n, edges, source, destination) {
+    if (n === 1 || source === destination) return true;
+
     const vertices = new Map();
     let result = false;
 
@@ -28,8 +30,8 @@ const validPath = function(n, edges, source, destination) {
     function dfs([vertex1, vertex2]) {
         if (vertex1 === destination || vertex2 === destination) return result = true;
 
-        if (vertex1 !== source) dfs(vertices.get(vertex1));
-        if (vertex2 !== source) dfs(vertices.get(vertex2));
+        if (vertex1 !== undefined && vertex1 !== source) dfs(vertices.get(vertex1));
+        if (vertex2 !== undefined && vertex2 !== source) dfs(vertices.get(vertex2));
     }
 
     dfs(vertices.get(source));
