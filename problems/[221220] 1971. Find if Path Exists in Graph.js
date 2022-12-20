@@ -13,8 +13,8 @@ const validPath = function(n, edges, source, destination) {
   const enqueue = (vertex) => queue.push(vertex);
   const dequeue = () => queue.shift();
 
-  const visitedVertexes = Array.from({ length: n }).fill(false);
-  visitedVertexes[source] = true;
+  const visitedVertices = Array.from({ length: n }).fill(false);
+  visitedVertices[source] = true;
 
   while (queue.length > 0) {
     const currentVertex = dequeue();
@@ -24,10 +24,10 @@ const validPath = function(n, edges, source, destination) {
     const currentEdge = copiedEdges[currentVertex];
 
     for (let i = 0; i < currentEdge.length; i++) {
-      if (visitedVertexes[currentEdge[i]]) continue;
+      if (visitedVertices[currentEdge[i]]) continue;
 
       enqueue(currentEdge[i]);
-      visitedVertexes[currentEdge[i]] = true;
+      visitedVertices[currentEdge[i]] = true;
     }
   }
 
