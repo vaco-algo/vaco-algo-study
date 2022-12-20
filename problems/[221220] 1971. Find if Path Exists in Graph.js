@@ -11,6 +11,10 @@ const validPath = function (n, edges, source, destination) {
   const copyEdges = [...edges];
   let isValidPath = true;
 
+  if (copyEdges.length === 1) {
+    return isValidPath;
+  }
+
   const flatAndCountEdges = copyEdges.flat().reduce((acc, cur) => {
     acc[cur] = (acc[cur] || 0) + 1;
     return acc;
@@ -18,7 +22,7 @@ const validPath = function (n, edges, source, destination) {
 
   const ArrayToBeRepeated = Object.values(flatAndCountEdges);
 
-  for (let i = 0; i < ArrayToBeRepeated; i++) {
+  for (let i = 0; i < ArrayToBeRepeated.length; i++) {
     if (ArrayToBeRepeated[i] !== 2) {
       isValidPath = false;
     }
