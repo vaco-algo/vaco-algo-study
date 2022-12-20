@@ -8,10 +8,7 @@
  * @return {boolean}
  */
 const validPath = function(n, edges, source, destination) {
-    if (n === 1 || source === destination) return true;
-
     const vertices = new Map();
-    let result = false;
 
     edges.forEach(([vertex1, vertex2]) => {
         if (vertices.has(vertex1)) {
@@ -27,14 +24,28 @@ const validPath = function(n, edges, source, destination) {
         }
     });
 
-    function dfs([vertex1, vertex2]) {
-        if (vertex1 === destination || vertex2 === destination) return result = true;
+    function bfs(vertex) {
+        const q = [];
+        const visitedVertices = {};
 
-        if (vertex1 !== undefined && vertex1 !== source) dfs(vertices.get(vertex1));
-        if (vertex2 !== undefined && vertex2 !== source) dfs(vertices.get(vertex2));
+        visitedVertices[vertex] = true;
+        q.push(vertex);
+
+        while (q.length) {
+            const currentVertex = q.shift();
+
+            if (currentVertex === destination) return true;
+
+            vertices.get(currentVertex).forEach(nearVertex => {
+                if (!visitedVertices[nearVertex]) {
+                    visitedVertices[nearVertex] = true;
+                    q.push(nearVertex);
+                }
+            });
+        }
+
+        return false;
     }
 
-    dfs(vertices.get(source));
-
-    return result;
+    return bfs(source);
 };
