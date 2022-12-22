@@ -52,8 +52,6 @@ Slack API를 이용해 스터디 안내, 알고리즘 문제 참여자 모집, �
 
 [공재혁](https://github.com/ponjaehyeok)
 
-[길지문](https://github.com/roadzmoon76)
-
 [사공은혜](https://github.com/eunhye210)
 
 [안형우](https://github.com/rktnsinger)
