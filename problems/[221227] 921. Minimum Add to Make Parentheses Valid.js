@@ -13,7 +13,7 @@ const minAddToMakeValid = function(s) {
     if (!stack.length) {
       paren === ")"
         ? unbalancedCount += 1
-        : stack.push(s[i]);
+        : stack.push(paren);
 
       continue;
     }
