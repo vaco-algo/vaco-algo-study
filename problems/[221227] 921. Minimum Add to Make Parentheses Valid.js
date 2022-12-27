@@ -5,23 +5,14 @@
  * @return {number}
  */
 const minAddToMakeValid = function(s) {
-  const parenthesesString = s;
   const stack = [];
-  let unbalancedCount = 0;
+  const peek = () => stack[stack.length - 1];
 
-  for (const paren of parenthesesString) {
-    if (!stack.length) {
-      paren === ")"
-        ? unbalancedCount += 1
-        : stack.push(paren);
-
-      continue;
-    }
-
-    paren === "("
-      ? stack.push(paren)
-      : stack.pop();
+  for (const paren of s) {
+    peek() + paren === "()"
+      ? stack.pop()
+      : stack.push(paren);
   }
 
-  return stack.length + unbalancedCount;
+  return stack.length;
 };
