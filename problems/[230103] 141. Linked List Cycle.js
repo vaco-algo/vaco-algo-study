@@ -17,12 +17,12 @@ const hasCycle = function(head) {
   const visitedSet = new Set();
   let currentNode = head;
 
-  while (true) {
-    if (!currentNode.next) return false;
+  while (currentNode.next) {
+    if (visitedSet.has(currentNode)) return true;
 
-    if (visitedSet.has(currentNode.val)) return true;
-
-    visitedSet.add(currentNode.val);
+    visitedSet.add(currentNode);
     currentNode = currentNode.next;
   }
+
+  return false;
 };
