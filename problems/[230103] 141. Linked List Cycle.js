@@ -12,5 +12,16 @@
  * @return {boolean}
  */
 const hasCycle = function(head) {
-    
+  let currentNode = head;
+
+  while (!!currentNode?.next) {
+    if (currentNode.visited) {
+      return true;
+    }
+
+    currentNode.visited = true;
+    currentNode = currentNode.next;
+  }
+
+  return false;
 };
