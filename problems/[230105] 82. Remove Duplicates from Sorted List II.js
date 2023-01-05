@@ -18,11 +18,11 @@ const deleteDuplicates = function(head) {
 
   let prev = head;
   let curr = head.next;
-  const duplicates = [];
+  let duplicate = null;
   let currentNode = null;
 
   while (prev) {
-    if (prev.val !== curr?.val && duplicates.indexOf(prev.val) === -1) {
+    if (prev.val !== curr?.val && duplicate !== prev.val) {
       const newNode = new ListNode(prev.val);
 
       if (!removedLinkedList) {
@@ -35,7 +35,7 @@ const deleteDuplicates = function(head) {
     }
 
     if (prev.val === curr?.val) {
-      duplicates.push(prev.val);
+      duplicate = prev.val;
     }
 
     prev = curr;
