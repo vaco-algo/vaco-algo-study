@@ -12,37 +12,29 @@
  * @return {ListNode}
  */
 const deleteDuplicates = function(head) {
-  const nodeHistory = new Map();
+  let resultHead = null;
+  let currentResultNode = null;
   let currentNode = head;
 
-  while (currentNode?.val || currentNode?.val === 0) {
-    nodeHistory.set(
-      currentNode.val,
-      nodeHistory.has(currentNode.val)
-        ? nodeHistory.get(currentNode.val) + 1
-        : 1
-    );
-    currentNode = currentNode.next;
-  }
-
-  currentNode = head;
-  let nonDuplicatedHead = null;
-  let currentNonDuplicated = null;
-
-  while (currentNode?.val || currentNode?.val === 0) {
-    if (nodeHistory.get(currentNode.val) === 1) {
-      if (!nonDuplicatedHead) {
-        nonDuplicatedHead = currentNode;
-        currentNonDuplicated = nonDuplicatedHead;
-      } else {
-        currentNonDuplicated.next = currentNode;
-        currentNonDuplicated = currentNonDuplicated.next;
+  while (typeof currentNode?.val === "number") {
+    if (currentNode.val === currentNode.next?.val) {
+      while (currentNode?.val === currentNode.next?.val) {
+        currentNode = currentNode.next;
       }
+      currentNode = currentNode.next;
+      continue;
     }
 
+    if (!resultHead) {
+      resultHead = currentNode;
+      currentResultNode = resultHead;
+    } else {
+      currentResultNode.next = currentNode;
+      currentResultNode = currentResultNode.next;
+    }
     currentNode = currentNode.next;
   }
 
-  currentNonDuplicated?.next && (currentNonDuplicated.next = null);
-  return nonDuplicatedHead;
+  currentResultNode?.next && (currentResultNode.next = null);
+  return resultHead;
 };
