@@ -1,17 +1,17 @@
 /**
  * leetcode problem link: https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/
  *
- * Definition for singly-linked list.
- * function ListNode(val, next) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.next = (next===undefined ? null : next)
- * }
- */
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
 /**
- * @param {ListNode} head
+ * @param {ListNode} head
  * @return {ListNode}
  */
-const deleteDuplicates = function(head) {
+const deleteDuplicates = function (head) {
   let root = head;
   let prevNode = null;
   let currentNode = head;
@@ -30,7 +30,6 @@ const deleteDuplicates = function(head) {
 
     if (isDuplicatedNode) {
       if (currentNode.val === root.val) {
-        currentNode.next = null;
         currentNode = nextNode;
         root = currentNode;
       } else {
@@ -51,9 +50,7 @@ const deleteDuplicates = function(head) {
   }
 
   if (isDuplicatedNode) {
-    root.next
-      ? prevNode.next = null
-      : root = null;
+    root.next ? (prevNode.next = null) : (root = null);
   }
 
   return root;
