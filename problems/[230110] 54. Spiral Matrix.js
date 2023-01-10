@@ -28,11 +28,6 @@ const spiralOrder = function (matrix) {
     resultArr.push(...lastItem.reverse());
     resultArr.push(...middleFirstItems.reverse());
 
-    firstItem.shift();
-    firstItem.pop();
-    lastItem.shift();
-    lastItem.pop();
-
     if (matrix[0].length > 0) return helper(matrix, resultArr);
   }
 
