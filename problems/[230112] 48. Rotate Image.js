@@ -8,8 +8,14 @@ const rotate = function (matrix) {
   const tempMatrix = Array.from({ length: matrix.length }, () => []);
 
   for (let i = 0; i < tempMatrix.length; i++) {
+    const stack = [];
+
     for (let j = 0; j < tempMatrix.length; j++) {
-      tempMatrix[i].push(matrix[i].shift());
+      stack.push(matrix[i].pop());
+    }
+
+    for (let k = 0; k < tempMatrix.length; k++) {
+      tempMatrix[i].push(stack.pop());
     }
   }
 
