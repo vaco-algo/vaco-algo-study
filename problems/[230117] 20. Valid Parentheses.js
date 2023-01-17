@@ -12,8 +12,8 @@ const isValid = function (s) {
   var isValid = function (s) {
     const stack = [];
 
-    for (let char of s) {
-      if (char === "(" | "{" | "[") {
+    for (const char of s) {
+      if (char === "(" || char === "{" || char === "[") {
         stack.push(char);
       }
 
