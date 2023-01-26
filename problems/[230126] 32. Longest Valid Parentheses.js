@@ -9,9 +9,9 @@ const longestValidParentheses = function (s) {
   let count = 0;
   let maxCount = 0;
 
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "(") {
-      stack.push(s[i]);
+  for (let parentheses of s) {
+    if (parentheses === "(") {
+      stack.push(parentheses);
     } else {
       const pop = stack.pop();
 
