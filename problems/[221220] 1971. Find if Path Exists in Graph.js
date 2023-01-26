@@ -8,81 +8,57 @@
  * @return {boolean}
  */
 
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.left = null;
-    this.right = null;
-  }
-}
-
-class Tree {
+class Graph {
   constructor() {
-    this.root = null;
-    this.size = 0;
+    this.adjacencyList = {};
   }
 
-  search(val) {
-    if (!this.root) false;
-
-    let copySize = this.size;
-    const copyRoot = this.root;
-    while (copySize !== 0) {
-      if (copyRoot.next === val) {
-        return true;
-      }
+  addEdge(v1, v2) {
+    if (!this.adjacencyList[v1]) {
+      this.adjacencyList[v1] = [];
     }
+
+    if (!this.adjacencyList[v2]) {
+      this.adjacencyList[v2] = [];
+    }
+    this.adjacencyList[v1].push(v2);
+    this.adjacencyList[v2].push(v1);
   }
 
-  add(node) {
-    this.size++;
+  DFS(vertex, destination) {
+    const visited = {};
+    const list = this.adjacencyList;
+    let result = false;
 
-    if (this.size === 1) {
-      this.root = node;
-      return;
-    }
+    function traversal(vertex) {
+      visited[vertex] = true;
 
-    if (this.size === 2) {
-      if (this.root.val < node.val) {
-        this.root.right = node;
-      } else {
-        node.right = this.root;
-        this.root = node;
+      if (list[vertex].includes(destination)) {
+        result = true;
+        return;
       }
 
-      return;
-    }
-
-    const copyRoot = this.root;
-
-    while (copyRoot.right) {
-      if (copyRoot.right > node) {
-        copyRoot = copyRoot.right;
-      }
-      if (copyRoot.right < node) {
-        copyRoot.right = node;
-        node.left = copyRoot;
+      for (let key of list[vertex]) {
+        if (!visited[key]) {
+          traversal(key);
+        }
       }
     }
+
+    traversal(vertex);
+    return result;
   }
 }
 
 const validPath = function (n, edges, source, destination) {
-  if (n === 1) return source === destination;
-  if (n === 2) return edges[0].include(0);
+  if (n <= 2)
+    return edges.length ? edges[0].includes(source) : source === destination;
 
-  const arr = [];
+  const graph = new Graph();
 
-  for (let [first, second] of edges) {
-    for (let i = 0; i < arr.length; i++) {}
-
-    if (!arr.length) {
-      const tree = new Tree();
-
-      tree.add(new Node(first));
-      tree.add(new Node(second));
-
-      console.log(tree);
-    }
+  for (let i = 0; i < edges.length; i++) {
+    graph.addEdge(edges[i][0].toString(), edges[i][1].toString());
   }
+
+  return graph.DFS(source, destination.toString());
 };
