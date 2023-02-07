@@ -15,7 +15,7 @@ const reverse = function(x) {
   if (
     reversedString.length > 10
     || (reversedString.length === 10 && reversedString > "2147483647")
-    ) {
+  ) {
     return 0;
   }
 
