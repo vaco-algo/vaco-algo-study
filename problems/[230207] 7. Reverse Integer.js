@@ -5,7 +5,7 @@
  * @return {number}
  */
 const reverse = function(x) {
-  let stringX = Math.abs(x).toString();
+  const stringX = Math.abs(x).toString();
   let reversedString = "";
 
   for (let i = 0; i < stringX.length; i++) {
