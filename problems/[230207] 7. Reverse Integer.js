@@ -19,7 +19,7 @@ const reverseInteger = (integer) => {
 const reverse = function (x) {
   const reversedX = reverseInteger(x);
 
-  if (reversedX < Math.pow(-2, 31) || reversedX > Math.pow(2, 31) - 1) return 0;
+  if (reversedX <= Math.pow(-2, 31) || reversedX >= Math.pow(2, 31) - 1) return 0;
 
   return reversedX;
 };
