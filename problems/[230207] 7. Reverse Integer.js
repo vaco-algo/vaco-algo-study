@@ -6,20 +6,14 @@
  */
 
 const reverseInteger = (integer) => {
-  const integerString = integer + "";
+  const integerString = Math.abs(integer) + "";
   let reversedString = "";
 
   for (let i = integerString.length - 1; i >= 0; i--) {
-    if (integerString[i] === "-") {
-      reversedString = "-" + reversedString;
-
-      break;
-    }
-
     reversedString += integerString[i];
   }
 
-  return Number(reversedString);
+  return Number(reversedString) * (integer < 0 ? -1 : 1);
 };
 
 const reverse = function (x) {
