@@ -37,17 +37,14 @@ var largestNumber = function (nums) {
 
     if (keep.length) {
       if (keep[0][0] !== currentStringNum[0]) {
-        const test = permutation(keep, keep.length);
-        test.sort();
-        result += test.pop();
-
+        result += permutation(keep, keep.length).sort().pop();
         keep.length = 0;
       } else if (index === sortNums.length - 1) {
         keep.push(currentStringNum);
-        const test = permutation(keep, keep.length);
-        test.sort();
+        const permutationArr = permutation(keep, keep.length);
+        permutationArr.sort();
 
-        return (result += test.pop());
+        return (result += permutationArr.pop());
       } else {
         return keep.push(currentStringNum);
       }
