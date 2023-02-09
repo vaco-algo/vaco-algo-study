@@ -8,8 +8,6 @@ const reverse = function (x) {
   const result = [];
   const numToString = x.toString().split("");
 
-  if (Math.abs(x) > Math.pow(2, 31)) return 0;
-
   if (x > 0) {
     for (let i = 0; i < x.toString().length; i++) {
       result.push(numToString.pop());
