@@ -4,7 +4,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-const firstMissingPositive = function (nums) {
+const firstMissingPositive = function (nums) {//성공!
   const Deduplication = new Set(nums);
   const sortedNums = [...Deduplication].sort((a, b) => a - b);
   let count = 0;
@@ -21,10 +21,6 @@ const firstMissingPositive = function (nums) {
   for (let i = 0; i < nums.length; i++) {
     if (sortedNums[i] <= 0) {
       count++;
-
-      if (count === nums.length) {
-        return 1;
-      }
 
       if (sortedNums.length === 1 || count === sortedNums.length) {
         return 1;
