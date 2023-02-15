@@ -5,6 +5,10 @@
  * @return {number}
  */
 const firstMissingPositive = function (nums) {
+  if (nums.length === 1) {
+    return nums[0] === 1 ? 2 : 1;
+  }
+
   let minNumLength = 0;
   let minNumCount = 0;
 
@@ -35,18 +39,19 @@ const firstMissingPositive = function (nums) {
 
   let halfMin = min;
   let halfMax = 10 ** minNumLength / 2;
-  let count = halfMax - halfMin;
 
   while (halfMax - halfMin !== 0) {
+    let count = 0;
+
     for (let num of nums) {
       if (String(num).length !== minNumLength) continue;
 
       if (halfMin <= num && num < halfMax) {
-        count--;
+        count++;
       }
     }
 
-    if (count <= 0) {
+    if (count >= halfMax - halfMin) {
       halfMin = halfMax;
       if ((max - halfMax) / 2 < 0) {
         halfMax = max;
@@ -56,8 +61,6 @@ const firstMissingPositive = function (nums) {
     } else {
       halfMax = halfMax - Math.ceil((halfMax - halfMin) / 2);
     }
-
-    count = halfMax - halfMin;
   }
 
   return halfMin;
