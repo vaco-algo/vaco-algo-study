@@ -18,6 +18,7 @@ const setZeroes = function (matrix) {
   }
 
   const dupleRemoveYIndex = [...YindexOfzeroValue];
+
   for (let i = 0; i < matrix.length; i++) {
     if (matrix[dupleRemoveYIndex[i]]) {
       matrix[dupleRemoveYIndex[i]] = Array.from(
