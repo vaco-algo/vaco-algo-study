@@ -13,7 +13,7 @@ function TreeNode(val, left, right) {
 }
 
 const sortedArrayToBST = function (nums) {
-  if (nums.length === 0) return;
+  if (!nums.length) return;
   const nodeIndex = Math.floor(nums.length / 2);
   const left = nums.slice(0, nodeIndex);
   const right = nums.slice(nodeIndex + 1);
