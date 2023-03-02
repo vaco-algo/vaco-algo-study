@@ -15,14 +15,14 @@
 const isSymmetric = (root) => {
   if (!root) return true;
 
-  const checkSymmetric = (firstNode, secondNode) => {
-    if (!firstNode && !secondNode) return true;
-    if (!firstNode || !secondNode) return false;
-    if (firstNode.val !== secondNode.val) return false;
-    if (firstNode.val === secondNode.val)
+  const checkSymmetric = (startNode, nextNode) => {
+    if (!startNode && !nextNode) return true;
+    if (!startNode || !nextNode) return false;
+    if (startNode.val !== nextNode.val) return false;
+    if (startNode.val === nextNode.val)
       return (
-        checkSymmetric(firstNode.left, secondNode.right) &&
-        checkSymmetric(firstNode.right, secondNode.left)
+        checkSymmetric(startNode.left, nextNode.right) &&
+        checkSymmetric(startNode.right, nextNode.left)
       );
     else return false;
   };
