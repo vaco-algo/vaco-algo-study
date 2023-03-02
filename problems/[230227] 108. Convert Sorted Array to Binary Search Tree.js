@@ -13,17 +13,15 @@ function TreeNode(val, left, right) {
 }
 
 const sortedArrayToBST = function (nums) {
-  const sortedArrayToBST = function (nums) {
-    if (nums.length === 0) return;
-    const nodeIndex = Math.floor(nums.length / 2);
-    const left = nums.slice(0, nodeIndex);
-    const right = nums.slice(nodeIndex + 1);
-    const node = new TreeNode(
-      nums[nodeIndex],
-      sortedArrayToBST(left),
-      sortedArrayToBST(right)
-    );
+  if (nums.length === 0) return;
+  const nodeIndex = Math.floor(nums.length / 2);
+  const left = nums.slice(0, nodeIndex);
+  const right = nums.slice(nodeIndex + 1);
+  const node = new TreeNode(
+    nums[nodeIndex],
+    sortedArrayToBST(left),
+    sortedArrayToBST(right)
+  );
 
-    return node;
-  };
+  return node;
 };
