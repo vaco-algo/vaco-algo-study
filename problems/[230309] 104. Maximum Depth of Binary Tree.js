@@ -22,4 +22,3 @@ const maxDepth = function(root, depth = 1) {
     maxDepth(root.right, depth + 1),
   );
 }; 
- 
