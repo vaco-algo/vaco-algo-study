@@ -12,6 +12,11 @@
  * @param {TreeNode} root
  * @return {number}
  */
-const maxDepth = function(root) {
+const maxDepth = function (tree, count = 0) {
+  if (!tree) return count;
 
+  return Math.max(
+    maxDepth(tree.left, count + 1),
+    maxDepth(tree.right, count + 1)
+  );
 };
