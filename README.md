@@ -31,33 +31,3 @@ leetcode의 알고리즘 문제들을 풀어봐요. 그 주의 알고리즘 주�
 각자 알고리즘에 대한 질문을 주고받고, 좋은 풀이법과 접근법에 대해 얘기하고 있어요.
 
 Slack API를 이용해 스터디 안내, 알고리즘 문제 참여자 모집, 랜덤 리뷰어 배정 등의 작업은 자동으로 이루어지고 있습니다.
-<br>
-<br>
-
-## Members
-
-[공재혁](https://github.com/ponjaehyeok)
-
-[김병석](https://github.com/MochaPresso)
-
-[박태욱](https://github.com/TAEUK-PARK)
-
-[사공은혜](https://github.com/eunhye210)
-
-[안형우](https://github.com/rktnsinger)
-
-[이상아](https://github.com/comt-mix)
-
-[이세영](https://github.com/tpdud406)
-
-[이정진](https://github.com/pinomad)
-
-[임현정](https://github.com/h-alex2)
-
-[최송이](https://github.com/ssong-yi)
-
-[최재혁](https://github.com/Sharpen-Cjh)
-
-[한아름](https://github.com/hanryu1109)
-
-[허세준](https://github.com/jun2212)
