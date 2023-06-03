@@ -5,6 +5,7 @@
  * @param {number} k
  * @return {number[][]}
  */
+
 const kClosest = function (points, k) {
   return points
     .sort((point1, point2) => {
