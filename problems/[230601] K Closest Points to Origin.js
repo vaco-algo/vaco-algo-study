@@ -5,7 +5,7 @@
  * @param {number} k
  * @return {number[][]}
  */
-const kClosest = function(points, k) {
+const kClosest = function (points, k) {
   const pointsInfo = {};
 
   points.forEach((points) => {
