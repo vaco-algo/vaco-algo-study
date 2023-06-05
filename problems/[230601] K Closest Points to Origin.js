@@ -14,7 +14,7 @@ const kClosest = function (points, k) {
 
       if (point1Distance > point2Distance) return 1;
       if (point1Distance < point2Distance) return -1;
-      return 1;
+      return 0;
     })
     .slice(0, k);
 };
