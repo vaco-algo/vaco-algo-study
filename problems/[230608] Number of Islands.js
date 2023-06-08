@@ -31,7 +31,7 @@ const numIslands = function (grid) {
       let current = grid[i][j];
 
       if (current === "1") {
-        DFS(i, j, num);
+        DFS(i, j);
         num++;
       }
     }
