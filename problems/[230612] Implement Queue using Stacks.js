@@ -48,8 +48,7 @@ List.prototype.getSize = function () {
 };
 
 var MyQueue = function () {
-  this.stack = [];
-  this.list = new List();
+  this.stack = new List();
 };
 
 /**
@@ -57,28 +56,28 @@ var MyQueue = function () {
  * @return {void}
  */
 MyQueue.prototype.push = function (x) {
-  this.list.add(x);
+  this.stack.add(x);
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.pop = function () {
-  return this.list.deleteHead();
+  return this.stack.deleteHead();
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.peek = function () {
-  return this.list.getHead();
+  return this.stack.getHead();
 };
 
 /**
  * @return {boolean}
  */
 MyQueue.prototype.empty = function () {
-  return !this.list.getSize();
+  return !this.stack.getSize();
 };
 
 /**
