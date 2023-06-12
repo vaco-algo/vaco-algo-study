@@ -1,54 +1,6 @@
-const List = function () {
-  this.head = null;
-  this.tail = null;
-  this.size = 0;
-};
-
-const Node = function (value) {
-  this.value = value;
-  this.next = null;
-};
-
-List.prototype.add = function (x) {
-  const node = new Node(x);
-
-  if (!this.head) {
-    this.head = node;
-    this.tail = node;
-  } else {
-    this.tail.next = node;
-    this.tail = node;
-  }
-
-  this.size++;
-};
-
-List.prototype.deleteHead = function () {
-  if (!this.head) {
-    return null;
-  } else {
-    const headValue = this.head.value;
-    this.head = this.head.next;
-    this.size--;
-
-    return headValue;
-  }
-};
-
-List.prototype.getHead = function () {
-  if (!this.head) {
-    return null;
-  } else {
-    return this.head.value;
-  }
-};
-
-List.prototype.getSize = function () {
-  return this.size;
-};
-
 const MyQueue = function () {
-  this.stack = new List();
+  this.stack1 = [];
+  this.stack2 = [];
 };
 
 /**
@@ -56,28 +8,46 @@ const MyQueue = function () {
  * @return {void}
  */
 MyQueue.prototype.push = function (x) {
-  this.stack.add(x);
+  this.stack1.push(x);
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.pop = function () {
-  return this.stack.deleteHead();
+  if (!this.stack1.length && !this.stack2.length) {
+    return null;
+  }
+
+  if (!this.stack2.length) {
+    while (this.stack1.length) {
+      this.stack2.push(this.stack1.pop());
+    }
+  }
+
+  return this.stack2.pop();
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.peek = function () {
-  return this.stack.getHead();
+  if (this.stack2.length) {
+    return this.stack2[this.stack2.length - 1];
+  } else {
+    return this.stack1[0];
+  }
 };
 
 /**
  * @return {boolean}
  */
 MyQueue.prototype.empty = function () {
-  return !this.stack.getSize();
+  if (!this.stack1.length && !this.stack2.length) {
+    return true;
+  }
+
+  return false;
 };
 
 /**
