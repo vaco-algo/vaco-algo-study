@@ -1,10 +1,10 @@
-var List = function () {
+const List = function () {
   this.head = null;
   this.tail = null;
   this.size = 0;
 };
 
-var Node = function (value) {
+const Node = function (value) {
   this.value = value;
   this.next = null;
 };
@@ -47,7 +47,7 @@ List.prototype.getSize = function () {
   return this.size;
 };
 
-var MyQueue = function () {
+const MyQueue = function () {
   this.stack = new List();
 };
 
