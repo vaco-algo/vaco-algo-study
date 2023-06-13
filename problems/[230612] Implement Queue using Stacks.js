@@ -1,12 +1,13 @@
-const MyQueue = function () {};
-this.modelStackOfQueue = [];
-this.helperStack = [];
+const MyQueue = function () {
+  this.helperStack = [];
+  this.stackWorkAsQueue = [];
+};
 /**
  * @param {number} x
  * @return {void}
  */
 MyQueue.prototype.push = function (x) {
-  this.modelStackOfQueue.push(x);
+  this.helperStack.push(x);
 };
 
 /**
@@ -15,15 +16,15 @@ MyQueue.prototype.push = function (x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function () {
-  const length = this.modelStackOfQueue.length;
-  if (!this.helperStack.length) {
+  const length = this.helperStack.length;
+  if (!this.stackWorkAsQueue.length) {
     for (let i = 0; i < length; i++) {
-      const num = this.modelStackOfQueue.pop();
-      this.helperStack.push(num);
+      const num = this.helperStack.pop();
+      this.stackWorkAsQueue.push(num);
     }
-    return this.helperStack.pop();
+    return this.stackWorkAsQueue.pop();
   } else {
-    return this.helperStack.pop();
+    return this.stackWorkAsQueue.pop();
   }
 };
 
@@ -31,16 +32,16 @@ MyQueue.prototype.pop = function () {
  * @return {number}
  */
 MyQueue.prototype.peek = function () {
-  this.helperStack.length
-    ? this.helperStack[this.helperStack.length - 1]
-    : this.modelStackOfQueue[0];
+  return this.stackWorkAsQueue.length
+    ? this.stackWorkAsQueue[this.stackWorkAsQueue.length - 1]
+    : this.helperStack[0];
 };
 
 /**
  * @return {boolean}
  */
 MyQueue.prototype.empty = function () {
-  return !this.modelStackOfQueue.length && !this.helperStack.length
+  return !this.helperStack.length && !this.stackWorkAsQueue.length
     ? true
     : false;
 };
