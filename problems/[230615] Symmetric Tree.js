@@ -12,6 +12,28 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-const isSymmetric = function(root) {
-    
+const isSymmetric = function (root) {
+  if (!root) {
+    return false;
+  }
+
+  return checkIsSame(root.left, root.right);
+
+  function checkIsSame(leftNode, rightNode) {
+    if (
+      (!leftNode && rightNode) ||
+      (leftNode && !rightNode) ||
+      (leftNode && rightNode && leftNode.val !== rightNode.val)
+    ) {
+      return false;
+    }
+
+    if (leftNode && rightNode) {
+      return (
+        checkIsSame(leftNode.left, rightNode.right) &&
+        checkIsSame(leftNode.right, rightNode.left)
+      );
+    }
+    return true;
+  }
 };
