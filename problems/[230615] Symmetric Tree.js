@@ -12,6 +12,18 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-const isSymmetric = function(root) {
-    
+
+function isMirror(leftNode, rightNode) {
+  if (leftNode === null && rightNode === null) return true;
+  if (leftNode === null || rightNode === null) return false;
+  if (leftNode.val !== rightNode.val) return false;
+
+  return (
+    isMirror(leftNode.left, rightNode.right) &&
+    isMirror(leftNode.right, rightNode.left)
+  );
+}
+
+const isSymmetric = function (root) {
+  return isMirror(root.left, root.right);
 };
