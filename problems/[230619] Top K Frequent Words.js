@@ -5,6 +5,7 @@
  * @param {number} k
  * @return {string[]}
  */
+
 const topKFrequent = function (words, k) {
   const frequency = {};
   const result = [];
