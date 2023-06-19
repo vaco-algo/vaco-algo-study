@@ -14,7 +14,6 @@ const topKFrequent = function (words, k) {
     frequency[word] =
       frequency[word] === undefined ? 1 : (frequency[word] += 1);
   });
-
   Object.entries(frequency)
     .sort()
     .sort((a, b) => b[1] - a[1])
