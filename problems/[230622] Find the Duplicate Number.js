@@ -3,6 +3,7 @@
  *
  * @param {number[]} nums
  * @return {number}
+ *
  */
 const findDuplicate = function (nums) {
   const map = new Map();
