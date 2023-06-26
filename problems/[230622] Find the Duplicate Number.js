@@ -5,16 +5,12 @@
  * @return {number}
  */
 const findDuplicate = function(nums) {
-  const map = {};
-  let result = null;
-
-  nums.every((num) => {
-    if (map[num]) {
-      result = num;
-      return false
-    };
-
-    map[num] = 1;
-    return true;
-  });
+  return nums.reduce((accumulator, num, i, array) => {
+    if (accumulator[num]) {
+      array.splice(0);
+      return num;
+    }
+    accumulator[num] = 1;
+    return accumulator;
+  }, {});
 };
