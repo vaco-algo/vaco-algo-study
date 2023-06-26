@@ -6,9 +6,9 @@
  */
 
 var reduce = function (nums, fn, init) {
-  let acc = init;
+  if (!nums.length) return init;
 
-  if (!nums.length) return acc;
+  let acc = init;
 
   nums.forEach((item) => (acc = fn(acc, item)));
 
