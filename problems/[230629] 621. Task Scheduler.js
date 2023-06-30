@@ -20,28 +20,38 @@ var leastInterval = function (tasks, n) {
     let nCount = n;
     const lastCounter = counter[counter.length - 1];
 
-    answer++;
-    lastCounter[1]--;
+    if (lastCounter[1]) {
+      answer++;
+      lastCounter[1]--;
+    }
 
     if (lastCounter[1] === 0) {
       counter.pop();
     }
 
-    while (nCount) {
-      if (!counter[i]) {
-        answer += nCount;
-        break;
+    while (i >= 0) {
+      if (counter[i][1] === 0) {
+        counter.splice(i, 1);
+        i -= 1;
+        continue;
       }
 
-      if (counter[i][1] < 1) {
-        i--;
-        continue;
+      if (nCount <= 0) {
+        if (counter[i][1] === 1 || counter[i][1] < lastCounter[1]) {
+          break;
+        }
       }
 
       counter[i][1]--;
       nCount--;
       answer++;
-      i--;
+      i -= 1;
+    }
+
+    if (nCount > 0) {
+      answerArr.push("idle");
+      tt += nCount;
+      answer += nCount;
     }
   }
 
