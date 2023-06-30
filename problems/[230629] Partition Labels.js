@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number[]}
  */
-//30분
+
 var partitionLabels = function (s) {
   const endIdx = {};
   const answer = [];
@@ -13,11 +13,10 @@ var partitionLabels = function (s) {
     }
   }
 
-  let left = 0;
   let right = endIdx[s[0]];
   let temp = s.slice(0, right + 1);
 
-  while (left < s.length) {
+  for (let left = 0; left < s.length; left++) {
     const currentNumEndIdx = endIdx[s[left]];
 
     if (right < currentNumEndIdx) {
@@ -30,8 +29,6 @@ var partitionLabels = function (s) {
       answer.push(temp.length);
       temp = s.slice(left + 1, right + 1);
     }
-
-    left++;
   }
 
   return answer;
