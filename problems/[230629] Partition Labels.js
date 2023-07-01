@@ -2,7 +2,6 @@
  * @param {string} s
  * @return {number[]}
  */
-//30분
 var partitionLabels = function (s) {
   const endIdx = {};
   const answer = [];
