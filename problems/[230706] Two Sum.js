@@ -23,7 +23,7 @@ const twoSum = function (nums, target) {
         }
       }
 
-      return [left, right];
+      return result;
     }
 
     if (currentSum > target) {
