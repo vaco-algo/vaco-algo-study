@@ -31,5 +31,6 @@ var floodFill = function (image, sr, sc, color) {
   };
 
   dfs(image, sr, sc, color);
+
   return image;
 };
