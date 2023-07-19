@@ -9,6 +9,7 @@
  * @param {number} color
  * @return {number[][]}
  */
+
 var floodFill = function (image, sr, sc, color) {
   if (image[sr][sc] === color) return image;
 
