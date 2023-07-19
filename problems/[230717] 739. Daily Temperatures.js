@@ -7,16 +7,16 @@
  * @return {number[]}
  */
 var dailyTemperatures = function (temperatures) {
-  let i = 0;
-  let j = 1;
+  const result = new Array(temperatures.length).fill(0);
 
-  const arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for (let i = 0; i < temperatures.length; i += 1) {
+    for (let j = i + 1; j < temperatures.length; j += 1) {
+      if (temperatures[j] > temperatures[i]) {
+        result[i] = j - i;
+        break;
+      }
+    }
+  }
 
-  while (j < temperatures.length)
-    if (i <= j) arr[i] = j - i;
-    else if (i > j) j += 1;
-
-  console.log("dt", arr);
+  return result;
 };
-
-dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]);
