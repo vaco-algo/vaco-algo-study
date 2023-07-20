@@ -10,7 +10,6 @@ const dailyTemperatures = function (temperatures) {
   // 풀이 방법: left와 right 포인터를 이용하여 중첩적인 반복문을 사용하여 해결
   // 시간 복잡도: O(m * n)
   // 공간 복잡도: O(n)
-
   let left = 0;
   let right = 1;
   const result = [];
