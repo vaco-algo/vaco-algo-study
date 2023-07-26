@@ -1,0 +1,18 @@
+/**
+ * leetcode problem link: https://leetcode.com/problems/swap-nodes-in-pairs/
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+const swapPairs = function (head) {
+  if (!head || !head.next) return head;
+
+  let temp1 = head.next;
+  let temp2 = head.next.next;
+
+  temp1.next = head;
+  head.next = swapPairs(temp2);
+
+  return temp1;
+};
