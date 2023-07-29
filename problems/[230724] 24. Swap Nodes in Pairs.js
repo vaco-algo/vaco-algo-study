@@ -10,4 +10,15 @@
  * }
  */
 
-function swapPairs(head) {}
+const swapPairs = function (head) {
+  if (!head || !head.next) return head;
+
+  let first = head,
+    second = head.next,
+    third = second.next;
+
+  second.next = first;
+  first.next = swapPairs(third);
+
+  return second;
+};

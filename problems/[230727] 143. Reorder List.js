@@ -13,6 +13,28 @@
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function(head) {
-    
+
+const reorderList = (head) => {
+  const stack = [];
+  let node = head;
+
+  while (node) {
+    stack.push(node);
+    node = node.next;
+  }
+
+  node = head;
+  let length = stack.length;
+
+  for (let i = 0; i < length; i += 1) {
+    if (i % 2) {
+      node.next = stack.pop();
+    } else {
+      node.next = stack.shift();
+    }
+
+    node = node.next;
+  }
+
+  node.next = null;
 };
