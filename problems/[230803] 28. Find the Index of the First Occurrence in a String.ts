@@ -7,6 +7,6 @@
  * @param {string} needle
  * @return {number}
  */
-var strStr = function(haystack, needle) {
-    
+const strStr = (haystack: string, needle: string): number => {
+  return 1;
 };
