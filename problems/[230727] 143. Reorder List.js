@@ -13,6 +13,4 @@
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function(head) {
-    
-};
+var reorderList = function (head) {};
