@@ -7,6 +7,4 @@
  * @param {number[]} newInterval
  * @return {number[][]}
  */
-var insert = function(intervals, newInterval) {
-    
-};
+var insert = function (intervals, newInterval) {};
