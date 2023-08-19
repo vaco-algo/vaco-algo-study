@@ -15,7 +15,7 @@ const convert = (s: string, numRows: number): string => {
   const stringArr: string[] = Array(numRows).fill("");
   let result: string = "";
 
-  const convert = (char: string, int: number): void => {
+  const alter = (char: string, int: number): void => {
     for (let i = 0; i < numRows; i++) {
       if (int === i || int === 2 * numRows - 2 - i) stringArr[i] += char;
     }
@@ -23,7 +23,7 @@ const convert = (s: string, numRows: number): string => {
 
   for (let i = 0; i < s.length; i++) {
     const remainder: number = i % (2 * numRows - 2);
-    convert(s[i], remainder);
+    alter(s[i], remainder);
   }
 
   stringArr.forEach((string) => {
