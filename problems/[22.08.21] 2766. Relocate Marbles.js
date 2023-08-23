@@ -13,9 +13,7 @@ const relocateMarbles = function (nums, moveFrom, moveTo) {
     }
   }
 
-  const result = nums.filter((item, i) => {
-    return nums.indexOf(item) === i;
-  });
+  const set = new Set(nums);
 
-  return result.sort((a, b) => a - b);
+  return [...set].sort((a, b) => a - b);
 };
