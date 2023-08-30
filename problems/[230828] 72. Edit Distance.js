@@ -10,7 +10,7 @@ const minDistance = function (word1, word2) {
   // 시간 복잡도: O(m * n)
   // 공간 복잡도: O(m * n)
 
-  let dp = Array(word1.length + 1)
+  const dp = Array(word1.length + 1)
     .fill(null)
     .map(() => Array(word2.length + 1).fill(0));
 
