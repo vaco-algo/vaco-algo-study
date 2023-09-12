@@ -7,6 +7,4 @@
  * @param {number[][]} prerequisites
  * @return {boolean}
  */
-var canFinish = function(numCourses, prerequisites) {
-    
-};
+var canFinish = function (numCourses, prerequisites) {};
