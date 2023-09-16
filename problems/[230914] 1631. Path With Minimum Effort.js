@@ -24,7 +24,6 @@ const minimumEffortPath = function (heights) {
   while (minHeap.length > 0) {
     const [effort, x, y] = minHeap.shift();
 
-    if (effort > dist[x][y]) continue;
     if (x === rows - 1 && y === cols - 1) return effort;
 
     for (const [dx, dy] of directions) {
