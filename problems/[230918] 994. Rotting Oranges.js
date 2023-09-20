@@ -6,6 +6,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
+
 const orangesRotting = function (grid) {
   let minute = 0;
   let freshOrange = 0;
