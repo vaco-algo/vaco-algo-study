@@ -3,6 +3,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+
 const findDuplicate = function (nums) {
   // 접근 방식: 지난 번에 플로이드 알고리즘을 풀었기 때문에 간단하게 hash 테이블을 사용하여 진행하였습니다.
   // 시간 복잡도: O(n)
